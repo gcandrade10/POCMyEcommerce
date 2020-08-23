@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/movieListFragment">
+	
+	<fragment
+		android:id="@+id/movieListFragment"
+		android:name="com.example.myecommerce.list.MovieListFragment"
+		android:label="fragment_movie_list"
+		tools:layout="@layout/fragment_movie_list">
+		<action
+			android:id="@+id/action_movieListFragment_to_shoppingCartFragment"
+			app:destination="@id/shoppingCartFragment" />
+		<action
+			android:id="@+id/action_movieListFragment_to_detailFragment2"
+			app:destination="@id/detailFragment" />
+	</fragment>
+	
+	<fragment
+		android:id="@+id/shoppingCartFragment"
+		android:name="com.example.myecommerce.cart.ShoppingCartFragment"
+		android:label="fragment_shopping_cart"
+		tools:layout="@layout/fragment_shopping_cart" >
+		<action
+			android:id="@+id/action_shoppingCartFragment_to_detailFragment"
+			app:destination="@id/detailFragment" />
+	</fragment>
+	<fragment
+		android:id="@+id/detailFragment"
+		android:name="com.example.myecommerce.detail.DetailFragment"
+		android:label="fragment_detail"
+		tools:layout="@layout/fragment_detail">
+		<argument
+			android:name="id"
+			app:argType="long" />
+		<deepLink
+			android:id="@+id/deepLink"
+			app:uri="https://www.myecommerce.com/movie/{id}" />
+	</fragment>
+</navigation>
